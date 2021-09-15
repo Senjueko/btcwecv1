@@ -2,6 +2,7 @@ import json
 import logging
 from selenium import webdriver
 
+logging.basicConfig(level=logging.INFO)
 browser = webdriver.Firefox()
 
 URL = "https://www.nytimes.com/crosswords/game/mini"
