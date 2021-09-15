@@ -2,7 +2,7 @@ import json
 import logging
 from selenium import webdriver
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(filename="btcwecv1.log",level=logging.INFO,format='%(asctime)s:%(levelname)s:%(message)s')
 browser = webdriver.Firefox()
 
 URL = "https://www.nytimes.com/crosswords/game/mini"
@@ -32,6 +32,7 @@ def printer(direction,number_list,string_list):
             string_list.append(word)
     for i in range(0, len(number_list)):
         print(str(number_list[i]) + ". " + string_list[i + 1])
+        logging.info(str(number_list[i]) + ". " + string_list[i + 1])
 
 
 print("=== Across ===")
@@ -50,6 +51,7 @@ with open('btcwecv1.json', 'w',encoding="UTF-8") as json_file:
         to_json = {"Group": "Down", "Number": numberList[item],
                    "String": stringList[item + 1]}  # dictionary for printing the JSON objects
         array_to_json.append(to_json)
+        logging.info(array_to_json)
 
     json.dump(array_to_json, json_file, indent=4,sort_keys=True)
     json_file.close()

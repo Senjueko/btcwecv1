@@ -1,0 +1,15 @@
+2021-09-15 19:13:21,766:INFO:1. Roof overhang
+2021-09-15 19:13:21,767:INFO:5. Microsoft's gaming console
+2021-09-15 19:13:21,767:INFO:6. LA or MI, but not DO or RE
+2021-09-15 19:13:21,767:INFO:7. French city depicted in van Gogh's "Café Terrace at Night"
+2021-09-15 19:13:21,767:INFO:8. Buddy
+2021-09-15 19:13:21,767:INFO:1. X, on a shirt tag
+2021-09-15 19:13:21,767:INFO:2. Have ___ (live it up)
+2021-09-15 19:13:21,768:INFO:3. Participate in a democracy
+2021-09-15 19:13:21,768:INFO:4. Former lovers
+2021-09-15 19:13:21,768:INFO:6. Drops out of a tree?
+2021-09-15 19:13:21,768:INFO:[{'Group': 'Down', 'Number': 1, 'String': 'X, on a shirt tag'}]
+2021-09-15 19:13:21,769:INFO:[{'Group': 'Down', 'Number': 1, 'String': 'X, on a shirt tag'}, {'Group': 'Down', 'Number': 2, 'String': 'Have ___ (live it up)'}]
+2021-09-15 19:13:21,769:INFO:[{'Group': 'Down', 'Number': 1, 'String': 'X, on a shirt tag'}, {'Group': 'Down', 'Number': 2, 'String': 'Have ___ (live it up)'}, {'Group': 'Down', 'Number': 3, 'String': 'Participate in a democracy'}]
+2021-09-15 19:13:21,769:INFO:[{'Group': 'Down', 'Number': 1, 'String': 'X, on a shirt tag'}, {'Group': 'Down', 'Number': 2, 'String': 'Have ___ (live it up)'}, {'Group': 'Down', 'Number': 3, 'String': 'Participate in a democracy'}, {'Group': 'Down', 'Number': 4, 'String': 'Former lovers'}]
+2021-09-15 19:13:21,769:INFO:[{'Group': 'Down', 'Number': 1, 'String': 'X, on a shirt tag'}, {'Group': 'Down', 'Number': 2, 'String': 'Have ___ (live it up)'}, {'Group': 'Down', 'Number': 3, 'String': 'Participate in a democracy'}, {'Group': 'Down', 'Number': 4, 'String': 'Former lovers'}, {'Group': 'Down', 'Number': 6, 'String': 'Drops out of a tree?'}]
