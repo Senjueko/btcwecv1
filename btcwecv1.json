@@ -1,27 +1,27 @@
 [
     {
         "Group": "Down",
-        "Number": 1,
-        "String": "X, on a shirt tag"
+        "Number": "1",
+        "String": "Open ___ night"
     },
     {
         "Group": "Down",
-        "Number": 2,
-        "String": "Have ___ (live it up)"
+        "Number": "4",
+        "String": "Locked-in, as a guess on \"Who Wants to Be a Millionaire\""
     },
     {
         "Group": "Down",
-        "Number": 3,
-        "String": "Participate in a democracy"
+        "Number": "6",
+        "String": "Tennis champ Agassi"
     },
     {
         "Group": "Down",
-        "Number": 4,
-        "String": "Former lovers"
+        "Number": "7",
+        "String": "\"Shh!\""
     },
     {
         "Group": "Down",
-        "Number": 6,
-        "String": "Drops out of a tree?"
+        "Number": "8",
+        "String": "Movie backdrop"
     }
 ]

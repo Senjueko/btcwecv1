@@ -6,6 +6,7 @@ Purpose of this project is getting data from specific website using selenium and
 ## INSTALLATION 
 You should have python3, Selenium and Selenium's Firefox driver to execute this project.
 
+#### **Installing Selenium**
 1. You can install Python virtualenv module globally using PIP 3 as follows: ***$ sudo pip3 install virtualenv***
 2. Create a project directory selenium-firefox/ in your current working directory as follows: ***$ mkdir -pv selenium-firefox/drivers***
 3. Navigate to your newly created project directory selenium-firefox/ as follows: ***$ cd selenium-firefox/***
@@ -19,6 +20,10 @@ You should have python3, Selenium and Selenium's Firefox driver to execute this 
 9. You can extract the geckodriver-v0.26.0-linux64.tar.gz archive from the ~/Downloads directory to the drivers/ directory of your project with the following command: ***$ tar -xzf ~/Downloads/geckodriver-v0.26.0-linux64.tar.gz -C drivers/***
 
 Reference URL: https://linuxhint.com/using_selenium_firefox_driver/
+
+#### **Installing BeautifulSoup**
+1. Run the following command on terminal: ***sudo apt-get update***
+2. After that run this: ***sudo apt-get install python-beautifulsoup***
 
 ## HOW TO USE??
 Open the terminal and type "python3 main.py" (main folder must be at same location with your working space)

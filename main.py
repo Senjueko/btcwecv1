@@ -1,59 +1,67 @@
 import json
 import logging
+import sys
 from selenium import webdriver
+from bs4 import BeautifulSoup
 
-logging.basicConfig(filename="btcwecv1.log",level=logging.INFO,format='%(asctime)s:%(levelname)s:%(message)s')
 browser = webdriver.Firefox()
+
+root = logging.getLogger()
+root.setLevel(logging.DEBUG)
+handler = logging.StreamHandler(sys.stdout)
+handler.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
 
 URL = "https://www.nytimes.com/crosswords/game/mini"
 
 browser.get(URL)
+content = browser.page_source
+soup = BeautifulSoup(content, "lxml")
 
-elements = browser.find_element_by_css_selector(".Layout-clueLists--10_Xl")
-ACROSS = ""
-DOWN = ""
+ARRAY_FOR_TEXT = []
 
-for word1 in elements.text.split("DOWN")[0]:
-    ACROSS += word1
-for word2 in elements.text.split("DOWN")[1]:
-    DOWN += word2
+try:
+    for string in soup.find_all("ol", class_="ClueList-list--2dD5- ClueList-obscured--UdyXT"):
+        for litag in string.find_all('li'):
+            stats = litag.text
+            clue = stats[0] + ". " + stats[1:]
+            ARRAY_FOR_TEXT.append(clue)
+except:
+    root.addHandler(handler)
 
-
-numberList = []
-stringList = []
-
-def printer(direction,number_list,string_list):
-    """Function for print specific clue's side (across or down)"""
-
-    for word in direction.splitlines():
-        if word.isdigit():
-            number_list.append(int(word))
-        else:
-            string_list.append(word)
-    for i in range(0, len(number_list)):
-        print(str(number_list[i]) + ". " + string_list[i + 1])
-        logging.info(str(number_list[i]) + ". " + string_list[i + 1])
-
+ACROSS = []
+DOWN = []
 
 print("=== Across ===")
-printer(ACROSS,numberList,stringList)
-numberList.clear()
-stringList.clear()
+try:
+    for word1 in range(int(len(ARRAY_FOR_TEXT) / 2)):
+        print(ARRAY_FOR_TEXT[word1])
+        ACROSS.append(ARRAY_FOR_TEXT[word1])
+except:
+    root.addHandler(handler)
+
 print("=== Down ===")
-printer(DOWN,numberList,stringList)
+try:
+    for word2 in range(int(len(ARRAY_FOR_TEXT) / 2), len(ARRAY_FOR_TEXT)):
+        print(ARRAY_FOR_TEXT[word2])
+        DOWN.append(ARRAY_FOR_TEXT[word2])
+except:
+    root.addHandler(handler)
 
+array_to_json = []  # array for writing the JSON objects
 
-array_to_json = [] # array for writing the JSON objects
+try:
+    with open('btcwecv1.json', 'w', encoding="UTF-8") as json_file:
 
-with open('btcwecv1.json', 'w',encoding="UTF-8") as json_file:
+        for item in range(0, len(DOWN)):
+            to_json = {"Group": "Down", "Number": ACROSS[item][0],
+                       "String": ACROSS[item][3:]}  # dictionary for printing the JSON objects
+            array_to_json.append(to_json)
 
-    for item in range(0, len(numberList)):
-        to_json = {"Group": "Down", "Number": numberList[item],
-                   "String": stringList[item + 1]}  # dictionary for printing the JSON objects
-        array_to_json.append(to_json)
-        logging.info(array_to_json)
-
-    json.dump(array_to_json, json_file, indent=4,sort_keys=True)
-    json_file.close()
+        json.dump(array_to_json, json_file, indent=4, sort_keys=True)
+        json_file.close()
+except:
+    root.addHandler(handler)
 
 browser.close()
